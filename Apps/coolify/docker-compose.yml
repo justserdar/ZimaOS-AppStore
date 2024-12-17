@@ -1,18 +1,18 @@
 # Configuration for coolify setup
 
-# Name of the big-bear-coolify application
-name: zimaos-coolify
+# Name of the zimaos-coolify application
+name: Coolify
 
-# Service definitions for the big-bear-coolify application
+# Service definitions for the zimaos-coolify application
 services:
-  # Service name: big-bear-coolify
-  # The `big-bear-coolify` service definition
-  big-bear-coolify:
+  # Service name: zimaos-coolify
+  # The `zimaos-coolify` service definition
+  zimaos-coolify:
     # Name of the container
-    container_name: big-bear-coolify
+    container_name: zimaos-coolify
 
     # Image to be used for the container specifies the fastfetch version and source
-    image: ghcr.io/coollabsio/coolify:4.0.0-beta.367
+    image: ghcr.io/coollabsio/coolify:4.0.0-beta.379
 
     # Container restart policy - restarts the container unless manually stopped
     restart: unless-stopped
@@ -27,13 +27,13 @@ services:
       - APP_KEY="base64:lSStPbXB/yW6cxXIz8fauQ937PbSUktTdIf7R05szQ4="
       - APP_URL="http://[CASAOS_IP]:8000"
       - DB_CONNECTION="pgsql"
-      - DB_HOST="big-bear-coolify-postgres"
+      - DB_HOST="zimaos-coolify-postgres"
       - DB_PORT="5432"
       - DB_DATABASE="coolify"
       - DB_USERNAME="coolify"
       - DB_PASSWORD="f1986213-9d72-4c36-bbd4-adca2f414fa1"
       - QUEUE_CONNECTION="redis"
-      - REDIS_HOST="big-bear-coolify-redis"
+      - REDIS_HOST="zimaos-coolify-redis"
       - REDIS_PASSWORD="9e3df6aa-ea48-4e59-a9c4-59798f1ba9b4"
       - HORIZON_BALANCE="100"
       - HORIZON_MAX_PROCESSES="10"
@@ -44,8 +44,8 @@ services:
       - PHP_PM_START_SERVERS="1"
       - PHP_PM_MIN_SPARE_SERVERS="1"
       - PHP_PM_MAX_SPARE_SERVERS="10"
-      - PUSHER_HOST="big-bear-coolify-soketi"
-      - PUSHER_BACKEND_HOST="big-bear-coolify-soketi"
+      - PUSHER_HOST="zimaos-coolify-soketi"
+      - PUSHER_BACKEND_HOST="zimaos-coolify-soketi"
       - PUSHER_PORT="6001"
       - PUSHER_BACKEND_PORT="6001"
       - PUSHER_SCHEME="http"
@@ -79,6 +79,7 @@ services:
     # Mount necessary volumes for accessing system information
     volumes:
       # ssh-keygen -f /DATA/AppData/big-bear-coolify/ssh/keys/id.root@host.docker.internal -t ed25519 -N '' -C root@coolify
+      # Find out what this is doing ^^^
       - /DATA/AppData/$AppID/ssh:/var/www/html/storage/app/ssh
       - /DATA/AppData/$AppID/applications:/var/www/html/storage/app/applications
       - /DATA/AppData/$AppID/databases:/var/www/html/storage/app/databases
@@ -98,13 +99,13 @@ services:
       timeout: 2s
 
     depends_on:
-      big-bear-coolify-postgres:
+      zimaos-coolify-postgres:
         condition: service_healthy
-      big-bear-coolify-redis:
+      zimaos-coolify-redis:
         condition: service_healthy
 
     networks:
-      - big_bear_coolify_network
+      - zimaos_coolify_network
 
     # CasaOS specific configuration for volume and port descriptions
     x-casaos:
@@ -294,8 +295,8 @@ services:
           description:
             en_us: Container path /var/www/html/storage/app/webhooks-during-maintenance
 
-  big-bear-coolify-postgres:
-    container_name: big-bear-coolify-postgres
+  zimaos-coolify-postgres:
+    container_name: zimaos-coolify-postgres
     image: postgres:15-alpine
     ports:
       - "5432:5432"
@@ -312,7 +313,7 @@ services:
       timeout: 2s
 
     networks:
-      - big_bear_coolify_network
+      - zimaos_coolify_network
 
     x-casaos:
       envs:
@@ -330,8 +331,8 @@ services:
           description:
             en_us: "Container Path: /var/lib/postgresql/data"
 
-  big-bear-coolify-redis: # Redis service configuration
-    container_name: big-bear-coolify-redis # Name of the running container
+  zimaos-coolify-redis: # Redis service configuration
+    container_name: zimaos-coolify-redis # Name of the running container
     image: redis:alpine
     ports:
       - "6379:6379"
@@ -357,7 +358,7 @@ services:
       timeout: 2s
 
     networks:
-      - big_bear_coolify_network
+      - zimaos_coolify_network
 
     x-casaos:
       envs:
@@ -369,8 +370,8 @@ services:
           description:
             en_us: "Container Path: /data"
 
-  big-bear-coolify-soketi:
-    container_name: big-bear-coolify-soketi
+  zimaos-coolify-soketi:
+    container_name: zimaos-coolify-soketi
     image: quay.io/soketi/soketi:1.6-16-alpine
     ports:
       - "6001:6001"
@@ -387,7 +388,7 @@ services:
       timeout: 2s
 
     networks:
-      - big_bear_coolify_network
+      - zimaos_coolify_network
 
     x-casaos:
       envs:
@@ -409,8 +410,8 @@ services:
             en_us: "Container Path: /data"
 
 networks:
-  big_bear_coolify_network:
-    name: big_bear_coolify_network
+  zimaos_coolify_network:
+    name: zimaos_coolify_network
     driver: bridge
   coolify:
     external: true
@@ -420,18 +421,19 @@ x-casaos:
   architectures:
     - amd64
     - arm64
-  main: big-bear-coolify
+  main: Coolify
   description:
     en_us: Coolify is a self-hosted web application that allows you to manage your servers, applications, and services. It provides a simple and intuitive interface for managing your infrastructure, making it easy to deploy and manage your applications. With Coolify, you can easily manage your servers, applications, and services, providing a streamlined experience for managing your infrastructure.
   tagline:
     en_us: Coolify
   developer: "coollabsio" # Developer of coolify
-  author: "BigBearTechWorld" # Author of the docker compose
-  icon: "https://cdn.jsdelivr.net/gh/bigbeartechworld/big-bear-casaos/Apps/coolify/logo.png"
+  author: "JustSerdar" # Author of the docker compose
+  icon: "https://raw.githubusercontent.com/justserdar/zimaos-coolify/refs/heads/main/app/logo.png"
   thumbnail: ""
   title:
     en_us: Coolify
-  category: BigBearCasaOS
+    custom: Coolify
+  category: SelfHost
   port_map: "8000"
   # Tips
   tips:
