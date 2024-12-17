@@ -432,8 +432,7 @@ x-casaos:
   thumbnail: ""
   title:
     en_us: Coolify
-    custom: Coolify
-  category: SelfHost
+  category: Developer
   port_map: "8000"
   # Tips
   tips:
