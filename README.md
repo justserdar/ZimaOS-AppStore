@@ -1,4 +1,14 @@
-# CasaOS AppStore
+# Learning repository and dev environment for the ZimaCube Pro
+
+Since I'm targeting my ZimaCube product for my own business needs as a one stop shop digital content house, 
+I won't be directly building for CasaOS and what I do for ZimaOS is meant for on the ZimaCube.
+To my knowledge because of the nature of CasaOS and ZimaOS are cross-compatible.
+
+Like at the start of the ZimaOS-Coolify research, I document all of it so you can reproduce it yourself.
+
+Note: You can read the original forked readme below. 
+
+## CasaOS AppStore
 
 [![GitHub issues by-label](https://img.shields.io/github/issues/IceWhaleTech/CasaOS-AppStore/help%20wanted?label=help%20wanted&style=for-the-badge)](https://github.com/IceWhaleTech/CasaOS-AppStore/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) [![GitHub contributors](https://img.shields.io/github/contributors/IceWhaleTech/CasaOS-AppStore?style=for-the-badge)](https://github.com/IceWhaleTech/CasaOS-AppStore/graphs/contributors)
 
