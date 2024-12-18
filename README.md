@@ -1,6 +1,6 @@
 ![zima-db](https://github.com/user-attachments/assets/f09dd4fe-b116-4fdc-a8ea-435c72de1c46)
 
-# Learning repository and dev environment for the ZimaCube Pro
+# Learning repository and Third-party dev environment for the ZimaCube Pro
 
 Since I'm targeting my ZimaCube product for my own business needs as a one stop shop digital content house, 
 I won't be directly building for CasaOS and what I do for ZimaOS is meant for on the ZimaCube.
