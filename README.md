@@ -1,4 +1,4 @@
-![zima-db](https://github.com/user-attachments/assets/0c4cc8e5-98c0-418b-9a42-5b1b86fee7fa)
+![zima-db](https://github.com/user-attachments/assets/f09dd4fe-b116-4fdc-a8ea-435c72de1c46)
 
 # Learning repository and dev environment for the ZimaCube Pro
 
