@@ -1,3 +1,5 @@
+![zima-db](https://github.com/user-attachments/assets/0c4cc8e5-98c0-418b-9a42-5b1b86fee7fa)
+
 # Learning repository and dev environment for the ZimaCube Pro
 
 Since I'm targeting my ZimaCube product for my own business needs as a one stop shop digital content house, 
