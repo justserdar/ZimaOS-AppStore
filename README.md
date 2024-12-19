@@ -4,7 +4,7 @@
 
 Since I'm targeting my ZimaCube product for my own business needs as a one stop shop digital content house, 
 I won't be directly building for CasaOS and what I do for ZimaOS is meant for on the ZimaCube.
-To my knowledge because of the nature of CasaOS and ZimaOS are they are cross-compatible in area's.
+To my knowledge because of the nature of CasaOS and ZimaOS they are cross-compatible in area's.
 
 Like at the start of the [zimaos-coolify research](https://github.com/justserdar/zimaos-coolify), I document all of it so you can reproduce it yourself.
 
