@@ -1,7 +1,17 @@
 [
   {
-    "name": "Coolify",
-    "font": "coolify",
-    "description": "Coolify"
+    "name": "ComfyUI",
+    "font": "comfyui",
+    "description": "ComfyUI"
+  },
+  {
+    "name": "Blender",
+    "font": "blender",
+    "description": "Blender"
+  },
+  {
+    "name": "CNCjs",
+    "font": "cncjs",
+    "description": "CNCjs"
   }
 ]

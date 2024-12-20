@@ -1,0 +1,49 @@
+name: optimistic_theodore
+services:
+  comfy:
+    cpu_shares: 90
+    command: []
+    container_name: ComfyUI
+    deploy:
+      resources:
+        limits:
+          memory: 20480M
+        reservations:
+          devices:
+            - capabilities:
+                - gpu
+              driver: nvidia
+              count: -1
+    image: registry.cn-hangzhou.aliyuncs.com/openrepo/comfyui:latest
+    labels:
+      icon: https://framerusercontent.com/images/7Nhoxwn9eWYrqKjEewfXutR90U.png?scale-down-to=1024
+    ports:
+      - target: 8188
+        published: "8188"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/ComfyUI/models/checkpoints
+        target: /ComfyUI/models/checkpoints
+      - type: bind
+        source: /DATA/AppData/ComfyUI/output
+        target: /ComfyUI/output
+    devices: []
+    cap_add: []
+    environment: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: JustSerdar
+  category: AI
+  hostname: ""
+  icon: https://framerusercontent.com/images/7Nhoxwn9eWYrqKjEewfXutR90U.png?scale-down-to=1024
+  index: /
+  is_uncontrolled: false
+  port_map: "8188"
+  scheme: http
+  store_app_id: optimistic_theodore
+  title:
+    custom: ComfyUI
+    en_us: ComfyUI
