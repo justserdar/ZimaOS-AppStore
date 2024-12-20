@@ -2,7 +2,7 @@
 
 Thank you WisdomSky and creator/community behind linuxserver for their work!
 
-Visit [linuxserver](https://github.com/WisdomSky/CasaOS-LinuxServer-AppStore/blob/main/Apps/Blender/docker-compose.yml) to grab the latest version.
+Visit [WisdomSky's CasaOS Linuxserver App Store](https://github.com/WisdomSky/CasaOS-LinuxServer-AppStore/blob/main/Apps/Blender/docker-compose.yml) to grab the latest version.
 
 This respository holds a copy of the docker-compose.yml file for Blender, use the above link to always grab the latest version!
 
