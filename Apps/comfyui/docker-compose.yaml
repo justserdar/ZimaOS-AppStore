@@ -1,4 +1,4 @@
-name: optimistic_theodore
+name: comfyui
 services:
   comfy:
     cpu_shares: 90
