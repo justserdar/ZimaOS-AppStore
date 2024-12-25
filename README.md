@@ -42,11 +42,17 @@ I dedicated a subdomain with a blog and docs area for this App Store called the 
 
 A update manager is coming soon to the App Store, I will be using Nuxt.js to build the frontend and TailwindCSS for styling.
 
-- Like my nuxt-coolify module, I will be wrapping the ZimaOS API into a Nuxt module too allow communication in realtime with the hardware from within the frontend. This allows us to streamline updating and handling apps on ZimaOS (rebuild nature of RAUC). CasaOS doesn't need this because it's a rolling release system.
+- Like my official [nuxt-coolify](https://github.com/justserdar/nuxt-coolify) module for Nuxt.js, I will be wrapping the [ZimaOS API](https://www.zimaspace.com/docs/zimaos/OpenAPI-Live-Preview) into a [Nuxt module](https://nuxt.com/modules) too allow communication in realtime with the hardware from within the frontend. This allows us to streamline updating and handling apps on ZimaOS (rebuild nature of RAUC). CasaOS doesn't need this because it's a rolling release system.
 
-This `ZimaOS update manager` will help you ease the migration of my containers from one version of ZimaOS to another.
+![official-nuxt-coolify](official-nuxt-coolify.png)
+
+This `ZimaOS update manager` using Nuxt and the ZimaOS API will help you ease the migration of my containers from one version of ZimaOS to another. Since a caveat, you lose your apps and data when you migrate to a newest version of ZimaOS, everytime, unlike CasaOS.
 
 Stay tuned for more updates!
+
+### Custom Nuxt apps on the dashboard
+
+I'm working on a open-source custom Nuxt template app that will allow you to manage your apps on the dashboard via a docker container.
 
 ## CasaOS AppStore
 
