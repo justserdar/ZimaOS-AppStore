@@ -11,7 +11,13 @@ services:
     hostname: cncjs
     restart: unless-stopped
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB0:/dev/ttyUSB0 # Add your USB COM ports here
+    # CasaOS specific configuration for volume and port descriptions
+    x-casaos:
+      volumes:
+        - container: /cncjs
+          description:
+            en_us: Container path for CNCjs /cncjs
 # CasaOS specific application metadata and configurations
 x-casaos:
   architectures:
@@ -22,7 +28,7 @@ x-casaos:
     en_us: CNCjs a web-based interface for CNC milling controller running Grbl, Smoothieware, or TinyG. Connecting to the CNC machine over a serial connection using a USB serial port or a Serial-to-WiFi module like XBee or USR-WIFI232-T.
   tagline:
     en_us: CNCjs
-  developer: "cncjs" # Developer of coolify
+  developer: "cncjs" # Developer of cncjs
   author: "JustSerdar" # Author of the docker compose
   icon: "https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/cncjs/logo.png?raw=true"
   thumbnail: ""

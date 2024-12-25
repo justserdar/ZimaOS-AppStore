@@ -29,6 +29,12 @@ services:
     environment: []
     network_mode: bridge
     privileged: false
+    # CasaOS specific configuration for volume and port descriptions
+    x-casaos:
+      volumes:
+        - container: /root/.invokeai
+          description:
+            en_us: Container path for InvokeAI /root/.invokeai
 x-casaos:
   author: JustSerdar
   category: Generative AI
