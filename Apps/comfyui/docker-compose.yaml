@@ -35,15 +35,16 @@ services:
     network_mode: bridge
     privileged: false
 x-casaos:
+  developer: comfyanonymous
   author: JustSerdar
-  category: AI
+  category: Generative AI
   hostname: ""
   icon: https://framerusercontent.com/images/7Nhoxwn9eWYrqKjEewfXutR90U.png?scale-down-to=1024
   index: /
   is_uncontrolled: false
   port_map: "8188"
   scheme: http
-  store_app_id: optimistic_theodore
+  store_app_id: comfyui
   title:
     custom: ComfyUI
     en_us: ComfyUI
