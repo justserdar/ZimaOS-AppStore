@@ -19,7 +19,7 @@ x-casaos:
     - arm64
   main: CNCjs
   description:
-    en_us: CNCjs is a self-hosted web application that allows you to manage your servers, applications, and services. It provides a simple and intuitive interface for managing your infrastructure, making it easy to deploy and manage your applications. With Coolify, you can easily manage your servers, applications, and services, providing a streamlined experience for managing your infrastructure.
+    en_us: CNCjs a web-based interface for CNC milling controller running Grbl, Smoothieware, or TinyG. Connecting to the CNC machine over a serial connection using a USB serial port or a Serial-to-WiFi module like XBee or USR-WIFI232-T.
   tagline:
     en_us: CNCjs
   developer: "cncjs" # Developer of coolify
@@ -28,10 +28,10 @@ x-casaos:
   thumbnail: ""
   title:
     en_us: CNCjs
-  category: Maker
+  category: Makerspace
   port_map: "8000"
   # Tips
   tips:
     before_install:
       en_us: |
-        Read this before installing: https://community.bigbeartechworld.com/t/added-coolify-to-casaos/2186?u=dragonfire1119
+        Read this before installing: https://github.com/cncjs/cncjs/blob/master/README.md
