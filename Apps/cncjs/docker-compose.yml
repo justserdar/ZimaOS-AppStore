@@ -24,7 +24,7 @@ x-casaos:
     en_us: CNCjs
   developer: "cncjs" # Developer of coolify
   author: "JustSerdar" # Author of the docker compose
-  icon: "https://github.com/cncjs/cncjs/blob/master/src/app/images/logo-square-256x256.png?raw=true"
+  icon: "https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/cncjs/logo.png?raw=true"
   thumbnail: ""
   title:
     en_us: CNCjs

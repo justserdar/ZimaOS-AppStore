@@ -4,11 +4,16 @@
 
 Your go-to App Store for Generative AI apps for CasaOS and ZimaOS devices like the [ZimaCube Pro](https://www.zimaspace.com/products/cube-personal-cloud?utm_source=homepage&utm_medium=banner) sporting a RTX A2000 GPU.
 
-## For who is this is Third party App Store?
+## For who is this Third party App Store?
 
-Creative professionals and designers wanting to use Generative AI apps on their ZimaCube Pro or GPU-enabled CasaOS systems can benefit greatly by using this App Store, jump starting projects and saving time. These one-click apps are meant to be easy to install and use, in actuality they're quite hard to setup properly. 
+Creative professionals, marketing teams, developers and designers wanting to use Generative AI apps on their ZimaCube Pro or GPU-enabled CasaOS systems who want to jumpstart projects and save time getting up and running with Generative AI apps in live collab fashion. These one-click apps are meant to be easy to install and manage after setup, in actuality running these applications is quite hard to setup properly.
 
 I value your time and want to enable you to get started in an eye-blink with Generative AI apps. One of my personal core missions is to make fundamental design processes more accessible to the general public.
+
+Streamlining your content generation workflow, pipelines is just one of my specialties.
+
+Read more about me [here](https://justserdar.dev/about).
+My business is called [Darweb](https://foundry.justserdar.dev/)
 
 ## Third party App store featuring Generative AI apps currently in active use and development on my ZimaCube Pro running ZimaOS.
 
@@ -25,6 +30,13 @@ I dedicated a subdomain with a blog and docs area for this App Store called the 
 ![landing](workbench-landing.png)
 ![docs](workbench-docs.png)
 
+
+## Planned Apps
+
+- *Pinikio*
+- *Houdini* (Requires a Yearly SideVFX license to use)
+- *ElizaOS*
+- *StabilityMatrix*
 
 ## Future support
 
