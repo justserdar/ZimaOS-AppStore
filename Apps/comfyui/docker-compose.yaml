@@ -34,6 +34,15 @@ services:
     environment: []
     network_mode: bridge
     privileged: false
+    # CasaOS specific configuration for volume and port descriptions
+    x-casaos:
+      volumes:
+        - container: /ComfyUI/models/checkpoints
+          description:
+            en_us: Container path for checkpoints /ComfyUI/models/checkpoints
+        - container: /ComfyUI/output
+          description:
+            en_us: Container path for projects/rendered output /ComfyUI/output
 x-casaos:
   developer: comfyanonymous
   author: JustSerdar
