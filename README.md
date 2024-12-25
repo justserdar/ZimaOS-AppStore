@@ -1,19 +1,19 @@
 ![zima-db](https://github.com/user-attachments/assets/f09dd4fe-b116-4fdc-a8ea-435c72de1c46)
 
-# GenAI AppStore for ZimaOS (& CasaOS)
+# Third Party Generative AI AppStore for ZimaOS (& CasaOS)
 
 Your go-to App Store for Generative AI apps for CasaOS and ZimaOS devices like the [ZimaCube Pro](https://www.zimaspace.com/products/cube-personal-cloud?utm_source=homepage&utm_medium=banner) sporting a RTX A2000 GPU.
 
 ## For who is this Third party App Store?
 
-Creative professionals, marketing teams, developers and designers wanting to use Generative AI apps on their ZimaCube Pro or GPU-enabled CasaOS systems who want to jumpstart projects and save time getting up and running with Generative AI apps in live collab fashion. These one-click apps are meant to be easy to install and manage after setup, in actuality running these applications is quite hard to setup properly.
+Creative professionals, marketing teams, developers, and designers looking to leverage Generative AI apps on their ZimaCube Pro or local GPU-enabled CasaOS systems will find these tools ideal for jumpstarting projects and saving time in collaborative, real-time environments. These one-click apps are designed for easy installation and management post-setup. However, setting up and running these applications properly can still be quite challenging, so I did that for the users.
 
 I value your time and want to enable you to get started in an eye-blink with Generative AI apps. One of my personal core missions is to make fundamental design processes more accessible to the general public.
 
 Streamlining your content generation workflow, pipelines is just one of my specialties.
-
 Read more about me [here](https://justserdar.dev/about).
-My business is called [Darweb](https://foundry.justserdar.dev/)
+My business is called [Darweb](https://darweb.nl/)
+Professional portfolio& showcase: [Contra](https://contra.com/JustSerdarDev)
 
 ## Third party App store featuring Generative AI apps currently in active use and development on my ZimaCube Pro running ZimaOS.
 
