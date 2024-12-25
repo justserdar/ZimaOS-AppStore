@@ -16,7 +16,7 @@ services:
               count: -1
     image: registry.cn-hangzhou.aliyuncs.com/openrepo/comfyui:latest
     labels:
-      icon: https://framerusercontent.com/images/7Nhoxwn9eWYrqKjEewfXutR90U.png?scale-down-to=1024
+      icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/comfyui/logo.png?raw=true
     ports:
       - target: 8188
         published: "8188"
@@ -39,7 +39,7 @@ x-casaos:
   author: JustSerdar
   category: Generative AI
   hostname: ""
-  icon: https://framerusercontent.com/images/7Nhoxwn9eWYrqKjEewfXutR90U.png?scale-down-to=1024
+  icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/comfyui/logo.png?raw=true
   index: /
   is_uncontrolled: false
   port_map: "8188"
