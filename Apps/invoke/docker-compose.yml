@@ -16,7 +16,7 @@ services:
               count: -1
     image: ghcr.io/invoke-ai/invokeai:latest
     labels:
-      icon: https://avatars.githubusercontent.com/u/113954515?s=48&v=4
+      icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/invoke/logo.png?raw=true
     ports:
       - target: 9090
         published: "9090"
@@ -33,13 +33,13 @@ x-casaos:
   author: JustSerdar
   category: Generative AI
   hostname: ""
-  icon: https://avatars.githubusercontent.com/u/113954515?s=48&v=4
+  icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/invoke/logo.png?raw=true
   index: /
   is_uncontrolled: false
   port_map: "9090"
   scheme: http
-  store_app_id: invokeai
+  store_app_id: invoke
   title:
-    custom: InvokeAI
-    en_us: invokeai
+    custom: Invoke
+    en_us: invoke
 
