@@ -1,6 +1,6 @@
 name: comfyui
 services:
-  comfy:
+  comfyui:
     cpu_shares: 90
     command: []
     container_name: ComfyUI
@@ -27,8 +27,23 @@ services:
         source: /DATA/AppData/ComfyUI/models/checkpoints
         target: /ComfyUI/models/checkpoints
       - type: bind
+        source: /DATA/AppData/ComfyUI/custom_nodes
+        target: /ComfyUI/custom_nodes
+      - type: bind
+        source: /DATA/AppData/ComfyUI/input
+        target: /ComfyUI/input
+      - type: bind
         source: /DATA/AppData/ComfyUI/output
         target: /ComfyUI/output
+      - type: bind
+        source: /DATA/AppData/ComfyUI/user
+        target: /ComfyUI/user
+      - type: bind
+        source: /DATA/AppData/ComfyUI/script_examples
+        target: /ComfyUI/script_examples
+      - type: bind
+        source: /DATA/AppData/ComfyUI/comfy_extras
+        target: /ComfyUI/comfy_extras
     devices: []
     cap_add: []
     environment: []
@@ -40,9 +55,24 @@ services:
         - container: /ComfyUI/models/checkpoints
           description:
             en_us: Container path for checkpoints /ComfyUI/models/checkpoints
+        - container: /ComfyUI/custom_nodes
+          description:
+            en_us: Container path for custom nodes /ComfyUI/custom_nodes
+        - container: /ComfyUI/input
+          description:
+            en_us: Container path for input files /ComfyUI/input
         - container: /ComfyUI/output
           description:
-            en_us: Container path for projects/rendered output /ComfyUI/output
+            en_us: Container path for output files /ComfyUI/output
+        - container: /ComfyUI/user
+          description:
+            en_us: Container path for user settings /ComfyUI/user
+        - container: /ComfyUI/script_examples
+          description:
+            en_us: Container path for script examples /ComfyUI/script_examples
+        - container: /ComfyUI/comfy_extras
+          description:
+            en_us: Container path for comfy extras /ComfyUI/comfy_extras
 x-casaos:
   developer: comfyanonymous
   author: JustSerdar
