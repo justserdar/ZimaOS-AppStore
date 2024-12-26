@@ -5,7 +5,7 @@ name: Coolify
 
 # Service definitions for the zimaos-coolify application
 services:
-  ssh-service:
+  zimaos-coolify-ssh:
     image: .
     volumes:
       - /DATA/AppData/$AppID/ssh:/root/.ssh  # Aligns with other Coolify volume mappings
@@ -14,8 +14,7 @@ services:
       mkdir -p $HOME/.ssh &&
       ln -sf /DATA/AppData/some-service/authorized_keys $HOME/.ssh/authorized_keys &&
       chmod 700 $HOME/.ssh &&
-      chmod 600 $HOME/.ssh/authorized_keys &&
-      exec your-default-command"
+      chmod 600 $HOME/.ssh/authorized_keys"
   # Service name: zimaos-coolify
   # The `zimaos-coolify` service definition
   zimaos-coolify:
@@ -110,7 +109,7 @@ services:
       timeout: 2s
 
     depends_on:
-      ssh-service:
+      zimaos-coolify-ssh:
       zimaos-coolify-postgres:
         condition: service_healthy
       zimaos-coolify-redis:
