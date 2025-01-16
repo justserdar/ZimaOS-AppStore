@@ -1,9 +1,12 @@
+version: "3.7"
 name: invokeai
+
 services:
   invokeai:
-    cpu_shares: 90
-    command: []
     container_name: InvokeAI
+    image: ghcr.io/invoke-ai/invokeai:latest
+    ports:
+      - "9090:9090"
     deploy:
       resources:
         limits:
@@ -14,38 +17,40 @@ services:
                 - gpu
               driver: nvidia
               count: -1
-    image: ghcr.io/invoke-ai/invokeai:latest
-    labels:
-      icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/invoke/logo.png?raw=true
-    ports:
-      - target: 9090
-        published: "9090"
-        protocol: tcp
-    restart: unless-stopped
     volumes:       
-    - /DATA/AppData/invokeai:/root/.invokeai
-    devices: []
-    cap_add: []
-    environment: []
+      - /DATA/AppData/invokeai:/root/.invokeai
     network_mode: bridge
-    privileged: false
+    restart: unless-stopped
     # CasaOS specific configuration for volume and port descriptions
     x-casaos:
       volumes:
         - container: /root/.invokeai
           description:
-            en_us: Container path for InvokeAI /root/.invokeai
+            en_us: Container path for InvokeAI configuration and models
+
+# CasaOS specific application metadata and configurations
 x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: InvokeAI
+  description:
+    en_us: InvokeAI is a leading creative engine for Stable Diffusion models, featuring an optimized pipeline, user-friendly interface, and advanced features for creative image generation and editing.
+  tagline:
+    en_us: Advanced Stable Diffusion Interface
+  developer: invoke-ai
   author: JustSerdar
+  icon: https://raw.githubusercontent.com/justserdar/ZimaOS-AppStore/main/Apps/invoke/logo.png
+  thumbnail: https://raw.githubusercontent.com/justserdar/ZimaOS-AppStore/main/Apps/invoke/logo.png
+  title:
+    en_us: InvokeAI
   category: Generative AI
-  hostname: ""
-  icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/invoke/logo.png?raw=true
-  index: /
-  is_uncontrolled: false
   port_map: "9090"
   scheme: http
-  store_app_id: invoke
-  title:
-    custom: Invoke
-    en_us: invoke
+  index: /
+  tips:
+    before_install:
+      en_us: |
+        Make sure you have enough disk space for models and NVIDIA drivers installed if using GPU acceleration.
+        First startup may take several minutes while downloading initial models.
 
