@@ -1,9 +1,11 @@
+version: "3.7"
 name: comfyui
 services:
   comfyui:
-    cpu_shares: 90
-    command: []
     container_name: ComfyUI
+    image: registry.cn-hangzhou.aliyuncs.com/openrepo/comfyui:latest
+    ports:
+      - "8188:8188"
     deploy:
       resources:
         limits:
@@ -14,76 +16,62 @@ services:
                 - gpu
               driver: nvidia
               count: -1
-    image: registry.cn-hangzhou.aliyuncs.com/openrepo/comfyui:latest
-    labels:
-      icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/comfyui/logo.png?raw=true
-    ports:
-      - target: 8188
-        published: "8188"
-        protocol: tcp
-    restart: unless-stopped
     volumes:
-      - type: bind
-        source: /DATA/AppData/ComfyUI/models/checkpoints
-        target: /ComfyUI/models/checkpoints
-      - type: bind
-        source: /DATA/AppData/ComfyUI/custom_nodes
-        target: /ComfyUI/custom_nodes
-      - type: bind
-        source: /DATA/AppData/ComfyUI/input
-        target: /ComfyUI/input
-      - type: bind
-        source: /DATA/AppData/ComfyUI/output
-        target: /ComfyUI/output
-      - type: bind
-        source: /DATA/AppData/ComfyUI/user
-        target: /ComfyUI/user
-      - type: bind
-        source: /DATA/AppData/ComfyUI/script_examples
-        target: /ComfyUI/script_examples
-      - type: bind
-        source: /DATA/AppData/ComfyUI/comfy_extras
-        target: /ComfyUI/comfy_extras
-    devices: []
-    cap_add: []
-    environment: []
+      - /DATA/AppData/ComfyUI/models/checkpoints:/ComfyUI/models/checkpoints
+      - /DATA/AppData/ComfyUI/custom_nodes:/ComfyUI/custom_nodes
+      - /DATA/AppData/ComfyUI/input:/ComfyUI/input
+      - /DATA/AppData/ComfyUI/output:/ComfyUI/output
+      - /DATA/AppData/ComfyUI/user:/ComfyUI/user
+      - /DATA/AppData/ComfyUI/script_examples:/ComfyUI/script_examples
+      - /DATA/AppData/ComfyUI/comfy_extras:/ComfyUI/comfy_extras
     network_mode: bridge
-    privileged: false
+    restart: unless-stopped
     # CasaOS specific configuration for volume and port descriptions
     x-casaos:
       volumes:
         - container: /ComfyUI/models/checkpoints
           description:
-            en_us: Container path for checkpoints /ComfyUI/models/checkpoints
+            en_us: Container path for checkpoints
         - container: /ComfyUI/custom_nodes
           description:
-            en_us: Container path for custom nodes /ComfyUI/custom_nodes
+            en_us: Container path for custom nodes
         - container: /ComfyUI/input
           description:
-            en_us: Container path for input files /ComfyUI/input
+            en_us: Container path for input files
         - container: /ComfyUI/output
           description:
-            en_us: Container path for output files /ComfyUI/output
+            en_us: Container path for output files
         - container: /ComfyUI/user
           description:
-            en_us: Container path for user settings /ComfyUI/user
+            en_us: Container path for user settings
         - container: /ComfyUI/script_examples
           description:
-            en_us: Container path for script examples /ComfyUI/script_examples
+            en_us: Container path for script examples
         - container: /ComfyUI/comfy_extras
           description:
-            en_us: Container path for comfy extras /ComfyUI/comfy_extras
+            en_us: Container path for comfy extras
+
+# CasaOS specific application metadata and configurations
 x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: ComfyUI
+  description:
+    en_us: ComfyUI is a powerful and modular stable diffusion GUI and backend with a strong focus on extensibility and performance.
+  tagline:
+    en_us: A powerful and modular stable diffusion GUI
   developer: comfyanonymous
   author: JustSerdar
+  icon: https://raw.githubusercontent.com/justserdar/ZimaOS-AppStore/main/Apps/comfyui/logo.png
+  thumbnail: https://raw.githubusercontent.com/justserdar/ZimaOS-AppStore/main/Apps/comfyui/logo.png
+  title:
+    en_us: ComfyUI
   category: Generative AI
-  hostname: ""
-  icon: https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/comfyui/logo.png?raw=true
-  index: /
-  is_uncontrolled: false
   port_map: "8188"
   scheme: http
-  store_app_id: comfyui
-  title:
-    custom: ComfyUI
-    en_us: ComfyUI
+  index: /
+  tips:
+    before_install:
+      en_us: |
+        Make sure you have enough disk space for models and NVIDIA drivers installed if using GPU acceleration.

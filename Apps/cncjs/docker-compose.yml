@@ -1,4 +1,5 @@
 version: "3.7"
+name: cncjs
 services:
   cncjs:
     container_name: CNCjs
@@ -11,13 +12,14 @@ services:
     hostname: cncjs
     restart: unless-stopped
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0 # Add your USB COM ports here
+      - /dev/ttyUSB0:/dev/ttyUSB0
     # CasaOS specific configuration for volume and port descriptions
     x-casaos:
       volumes:
         - container: /cncjs
           description:
-            en_us: Container path for CNCjs /cncjs
+            en_us: Container path for CNCjs configuration and data
+
 # CasaOS specific application metadata and configurations
 x-casaos:
   architectures:
@@ -25,19 +27,21 @@ x-casaos:
     - arm64
   main: CNCjs
   description:
-    en_us: CNCjs a web-based interface for CNC milling controller running Grbl, Smoothieware, or TinyG. Connecting to the CNC machine over a serial connection using a USB serial port or a Serial-to-WiFi module like XBee or USR-WIFI232-T.
+    en_us: CNCjs is a web-based interface for CNC milling controller running Grbl, Smoothieware, or TinyG. Connecting to the CNC machine over a serial connection using a USB serial port or a Serial-to-WiFi module like XBee or USR-WIFI232-T.
   tagline:
-    en_us: CNCjs
-  developer: "cncjs" # Developer of cncjs
-  author: "JustSerdar" # Author of the docker compose
-  icon: "https://github.com/justserdar/ZimaOS-AppStore/blob/main/Apps/cncjs/logo.png?raw=true"
-  thumbnail: ""
+    en_us: Web-based CNC milling controller interface
+  developer: cncjs
+  author: JustSerdar
+  icon: https://raw.githubusercontent.com/justserdar/ZimaOS-AppStore/main/Apps/cncjs/logo.png
+  thumbnail: https://raw.githubusercontent.com/justserdar/ZimaOS-AppStore/main/Apps/cncjs/logo.png
   title:
     en_us: CNCjs
   category: Makerspace
   port_map: "8000"
-  # Tips
+  scheme: http
+  index: /
   tips:
     before_install:
       en_us: |
-        Read this before installing: https://github.com/cncjs/cncjs/blob/master/README.md
+        Make sure your CNC machine is connected via USB and the correct port is mapped in the devices section.
+        For more information, visit: https://github.com/cncjs/cncjs/blob/master/README.md

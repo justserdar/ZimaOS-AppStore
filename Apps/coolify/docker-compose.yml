@@ -1,7 +1,7 @@
 # Configuration for coolify setup
 
 # Name of the zimaos-coolify application
-name: Coolify
+name: zimaos-coolify
 
 # Service definitions for the zimaos-coolify application
 services:
@@ -22,7 +22,7 @@ services:
     container_name: zimaos-coolify
 
     # Image to be used for the container specifies the fastfetch version and source
-    image: ghcr.io/coollabsio/coolify:4.0.0-beta.379
+    image: ghcr.io/coollabsio/coolify:latest
 
     # Container restart policy - restarts the container unless manually stopped
     restart: unless-stopped
@@ -421,9 +421,6 @@ services:
             en_us: "Container Path: /data"
 
 networks:
-  zimaos_coolify_network:
-    name: zimaos_coolify_network
-    driver: bridge
   coolify:
     external: true
 
