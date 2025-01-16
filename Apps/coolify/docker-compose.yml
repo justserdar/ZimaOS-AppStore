@@ -99,7 +99,6 @@ services:
       timeout: 2s
 
     depends_on:
-      zimaos-coolify-ssh:
       zimaos-coolify-postgres:
         condition: service_healthy
       zimaos-coolify-redis:
