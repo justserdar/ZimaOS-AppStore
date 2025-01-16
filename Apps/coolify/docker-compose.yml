@@ -5,16 +5,6 @@ name: zimaos-coolify
 
 # Service definitions for the zimaos-coolify application
 services:
-  zimaos-coolify-ssh:
-    image: .
-    volumes:
-      - /DATA/AppData/$AppID/ssh:/root/.ssh  # Aligns with other Coolify volume mappings
-    entrypoint: >
-      /bin/bash -c "
-      mkdir -p $HOME/.ssh &&
-      ln -sf /DATA/AppData/some-service/authorized_keys $HOME/.ssh/authorized_keys &&
-      chmod 700 $HOME/.ssh &&
-      chmod 600 $HOME/.ssh/authorized_keys"
   # Service name: zimaos-coolify
   # The `zimaos-coolify` service definition
   zimaos-coolify:
