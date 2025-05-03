@@ -2,10 +2,20 @@ version: "3.7"
 name: comfyui
 services:
   comfyui:
-    container_name: ComfyUI
-    image: registry.cn-hangzhou.aliyuncs.com/openrepo/comfyui:latest
+    container_name: comfyui
+    image: yanwk/comfyui-boot:cu126-slim
     ports:
-      - "8188:8188"
+      - "8189:8188"
+    labels:
+      - "casaos.port=8189"
+      - "casaos.protocol=http"
+      - "casaos.entrypoint=/"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8189"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     deploy:
       resources:
         limits:
@@ -56,7 +66,7 @@ x-casaos:
   architectures:
     - amd64
     - arm64
-  main: ComfyUI
+  main: comfyui
   description:
     en_us: ComfyUI is a powerful and modular stable diffusion GUI and backend with a strong focus on extensibility and performance.
   tagline:
@@ -68,10 +78,10 @@ x-casaos:
   title:
     en_us: ComfyUI
   category: Generative AI
-  port_map: "8188"
+  port_map: "8189"
   scheme: http
   index: /
   tips:
     before_install:
       en_us: |
-        Make sure you have enough disk space for models and NVIDIA drivers installed if using GPU acceleration.
+        Visit: https://hub.docker.com/r/yanwk/comfyui-boot for the latest versions.
