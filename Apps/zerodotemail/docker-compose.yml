@@ -1,0 +1,132 @@
+version: "3.7"
+name: zerodotemail
+services:
+  app:
+    container_name: zerodotemail
+    image: darweb/zerodotmail:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      WEBUI_PORT: 3000
+      NEXT_PUBLIC_APP_URL: http://<your-ip>:3000
+      DATABASE_URL: postgresql://postgres:postgres@<your-ip>:5432/zerodotemail
+      BETTER_AUTH_SECRET: my-better-auth-secret
+      BETTER_AUTH_URL: http://1<your-ip>:3000
+      BETTER_AUTH_TRUSTED_ORIGINS: http://<your-ip>:3000
+      GOOGLE_CLIENT_ID: your-google-client-id
+      GOOGLE_CLIENT_SECRET: your-google-client-secret
+      REDIS_URL: http://<your-ip>:8079
+      REDIS_TOKEN: upstash-local-token
+      RESEND_API_KEY: your-resend-api-key
+      OPENAI_API_KEY: ""
+      DEFAULT_AI_PROVIDER: # ollama
+      DEFAULT_AI_MODEL: # f.e installed model: gemma3:12b
+      OLLAMA_BASE_URL: http://<your-ip>:11434/api
+      OLLAMA_TOKEN: ""
+      AI_SYSTEM_PROMPT: ""
+      GROQ_API_KEY: ""
+      GOOGLE_GENERATIVE_AI_API_KEY: ""
+    depends_on:
+      - db
+      - valkey
+    volumes:
+      - /DATA/AppData/ZeroDotEmail/config:/app/config
+    x-casaos:
+      envs:
+        - container: NEXT_PUBLIC_APP_URL
+          description: { en_us: Public URL for ZeroDotEmail frontend }
+        - container: DATABASE_URL
+          description: { en_us: PostgreSQL connection string }
+        - container: BETTER_AUTH_SECRET
+          description: { en_us: Auth secret string }
+        - container: GOOGLE_CLIENT_ID
+          description: { en_us: Google OAuth client ID }
+        - container: GOOGLE_CLIENT_SECRET
+          description: { en_us: Google OAuth secret }
+        - container: REDIS_TOKEN
+          description: { en_us: Redis API token }
+        - container: REDIS_URL
+          description: { en_us: Redis API endpoint }
+        - container: RESEND_API_KEY
+          description: { en_us: Email sending API key }
+        - container: OPENAI_API_KEY
+          description: { en_us: OpenAI API key }
+        - container: DEFAULT_AI_PROVIDER
+          description: { en_us: AI provider override }
+        - container: DEFAULT_AI_MODEL
+          description: { en_us: AI model override }
+        - container: OLLAMA_BASE_URL
+          description: { en_us: Ollama API endpoint }
+        - container: OLLAMA_TOKEN
+          description: { en_us: Ollama API token }
+        - container: AI_SYSTEM_PROMPT
+          description: { en_us: System prompt for AI interactions }
+        - container: GROQ_API_KEY
+          description: { en_us: Groq API key }
+        - container: GOOGLE_GENERATIVE_AI_API_KEY
+          description: { en_us: Google Generative AI API key }
+      volumes:
+        - container: /app/config
+          description: { en_us: Application config and user settings }
+
+  db:
+    container_name: zerodotemail-db
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: zerodotemail
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - /DATA/AppData/ZeroDotEmail/postgres-data:/var/lib/postgresql/data
+
+  valkey:
+    container_name: zerodotemail-redis
+    image: bitnami/valkey:8.0
+    restart: unless-stopped
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+      VALKEY_DISABLE_COMMANDS: FLUSHDB,FLUSHALL
+    ports:
+      - "6379:6379"
+    volumes:
+      - /DATA/AppData/ZeroDotEmail/valkey-data:/bitnami/valkey/data
+
+  upstash-proxy:
+    container_name: zerodotemail-upstash-proxy
+    image: hiett/serverless-redis-http:latest
+    restart: unless-stopped
+    environment:
+      SRH_MODE: env
+      SRH_TOKEN: upstash-local-token
+      SRH_CONNECTION_STRING: redis://valkey:6379
+    ports:
+      - "8079:80"
+
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: app
+  title:
+    en_us: ZeroDotEmail
+  description:
+    en_us: An open-source AI email client that integrates with Gmail and other services.
+  tagline:
+    en_us: AI-powered, privacy-first email client
+  developer: Mail-0
+  author: Darweb
+  icon: https://avatars.githubusercontent.com/u/198371852?s=200&v=4
+  thumbnail: https://yourdomain.com/thumbnail.png
+  category: Communication
+  port_map: "3000"
+  scheme: http
+  index: /
+  tips:
+    before_install:
+      en_us: |
+        Ensure all required environment variables (API keys, secrets) are set via CasaOS or a secure deployment method.
